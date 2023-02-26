@@ -102,15 +102,12 @@ def func_ir_pago():                                       #FUNÇÃO QUE PAGA O I
     valor_total -= ir_pago                                                       #Subtrai o valor de 15% do valor total
     rendimento_anual = 0
     somatorio_ir += ir_pago                               #Adiciona o valor pago ao somário para as estatisticas finais!
-    #print(Back.BLACK+Fore.RED+f'Receita federal em ação, valor real: {valor_total:.2f}, '
-    #      f'\nValor pago de IR: {ir_pago:.2f}'+Style.RESET_ALL)
     anos_ir_pago.append(ano + data_atual.year)
 
 def aniversario_investimento ():                                                               #FUNÇÃO QUE CONTA OS ANOS
     global ano
     global contador_meses
     ano += 1
-    #print(Back.WHITE+Fore.LIGHTCYAN_EX+'-+-'*10,f'\n seu investimento tem {ano} anos!\n','-+-'*10,Style.RESET_ALL)
     contador_meses = 0                                                           #Zera a variável1
     if rendimento_anual >= valor_ativacao_receita_federal:                    #VERIFICA SE SERÁ TAXADO PELA RECEITA
         func_ir_pago()                                                        #CHAMA A FUNÇÃO QUE PAGA A RECEITA FEDERAL
@@ -125,8 +122,6 @@ for x in range(meses_contribuicao):                     #CRIA UM LAÇO COM A QUA
     valor_total += valor_aporte + juros                 #ATUALIZA O  VALOR TOTAL
     contador_come_cota += 1
     contador_meses += 1
-    #print(f'valor total: {valor_total:.2f}')
-    #print(f'Rendimentos mensal: {juros:.2f}')
     rendimentos += juros                                             #Cria um somatório apenas com os valores de juros!
     rendimento_anual += juros
     if contador_come_cota == 6:                                      #VERIFICA SE É PERIODO DE PAGAR A CORRETORA
@@ -158,4 +153,4 @@ time.sleep(0.2)
 for char in ('---------FIM---------'):
     sys.stdout.write(char)
     sys.stdout.flush()
-    time.sleep(0.2)
+    time.sleep(0.1)
